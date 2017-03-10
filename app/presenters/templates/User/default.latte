@@ -1,0 +1,38 @@
+{block content}
+{* co vidi prihlaseny uzivatel *}
+{include '..\Utrzky\prihlasen.latte'}
+{include '..\Utrzky\kategorie.latte'}
+{include '..\Utrzky\flashmessages.latte'}
+
+{* info o uzivateli *}
+<div class="col-lg-4"></div>
+<div class="col-lg-4">
+    <form id="regform" n:name=zmenUdajeForm>
+        <h1 id="regnad">Vaše údaje</h1>
+        <div class="oddelovac"></div>
+        <br>
+        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Uživatelské jméno</label>
+        <input class="col-lg-6 col-md-6 col-sm-6 col-xs-12" n:name=user value="{$userinfo["username"]}">
+        <br><br>
+        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Email</label>
+        <input type="email" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" n:name=email value="{$userinfo["email"]}">
+        <br><br>
+        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Aktuální heslo</label>
+        <input type="password" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" n:name=Apassword >
+        <br><br>
+        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Nové heslo</label>
+        <input type="password" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" n:name=Npassword>
+        <br><br>
+        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Nové heslo znovu</label>
+        <input type="password" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" n:name=passwordRepeat>
+        <br><br>
+        <input type="submit" value="Změnit údaje" n:name=odeslat> 
+    </form>
+</div>
+	
+{* odkaz na historii objednávek *}
+<div class="col-lg-4">
+    <br>
+    <a class="bcgrey bdouble kosik ptb10">Historie objednávek</a>
+</div>
+

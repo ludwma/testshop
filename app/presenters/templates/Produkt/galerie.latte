@@ -1,0 +1,21 @@
+{block content}
+{include '..\Utrzky\prihlaseny_prihlasen.latte'}
+{include '..\Utrzky\kategorie.latte'}
+
+{* Odkaz zpět na hru *}
+<div class="col-lg-12">
+    <div class="strana">
+        <a n:href="Produkt:default $id">Zpět na hru</a>
+    </div>
+</div>
+
+{* Obrazek *}
+{if $id !="neexistuje"}
+<a n:href="Produkt:galerie $id,$dalsi" class="fs0"><img src="{$basePath}/images/Produkty/{$id}/{$obrazek}.jpg" width="99.6%"></a>
+{/if}
+
+
+
+
+
+

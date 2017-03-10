@@ -1,0 +1,10 @@
+{block content}
+{include '..\Utrzky\admin_menu_kontakty.latte'}
+
+{include '..\Utrzky\flashmessages.latte'}
+
+<form n:name=smazatKontaktForm>
+    <h1>Smazat kontakt</h1>
+    <input type="text" placeholder="Jméno kontaktu" n:name=jmeno>
+    <input type="submit" value="Smazat" n:name=smaz>
+    </form>

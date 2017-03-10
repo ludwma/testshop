@@ -1,0 +1,14 @@
+{* tento soubor obsahuje admin menu listu , ale take 
+odkaz na hlavni stranu , tuto cast maji vsechny admin strany
+stejnou*}
+{block content}
+{include 'hlavni_strana_vrchni.latte'}
+
+{* admin menu *}
+<div class="kategorie col-lg-12">
+<a n:href="Administration:category">Zpět</a>
+<a n:href="Administration:pridat">Přidat hru</a>
+<a n:href="Administration:upravit">Upravit hru</a>
+<a n:href="Administration:odstranit">Smazat hru</a>
+</div>
+

@@ -1,0 +1,78 @@
+{block content}
+{* odkaz na hlavni stranu zatim unikatni vzhled pro kosik *}
+<div class="col-lg-12">
+    <div class="strana">
+        <a n:href="Homepage:default">Hlavní strana</a>
+    </div>
+</div>
+
+{* Polozky v kosiku *}
+<div class="col-lg-12">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 bcscolor2">
+        <h1>Nákupní košík</h1>
+        <div class="oddelovac"></div>
+        <br>
+
+        {* toto se zobrazi pokud jsou v kosiku polozky *}
+        <div n:if="$celkovacena > 0">
+            {* popis sloupcu *}
+            <div class="col-lg-12 bcgreen mb20">
+                <div class="col-lg-4">
+                    <h2>Zboží</h2> 
+                </div>
+                <div class="col-lg-2">
+                    <h2>Verze</h2>
+                </div>
+                <div class="col-lg-3">
+                    <h2>Cena</h2>
+                </div>
+                <div class="col-lg-3">               
+                </div>
+            </div>
+
+            {* vypis polozek *}
+            {foreach $hry as $polozka}
+                <div class="col-lg-12 bcscolor mb20" n:if="!empty($polozka->jmeno)">
+                    <div class="col-lg-4">
+                        <h2>{$polozka->jmeno}</h2> 
+                    </div>
+                    <div class="col-lg-2">
+                        <h2>{$polozka->verze}</h2>
+                    </div>
+                    <div class="col-lg-3">
+                        <h1>{$polozka->cena} Kč</h1>
+                    </div>
+                    <div class="col-lg-3">
+                        <form action="" method="post" class="mt20" n:name=odstranZboziForm>
+                            <input type="hidden" n:name=id value="{$polozka->id}">
+                            <input type="submit" n:name=odstran value="X">
+                        </form>
+                    </div>
+                </div>
+            {/foreach}
+
+            {* celkova cena a prechod na pokladnu nebo smazani kosiku *}
+            <h2 n:if="$celkovacena > 0">Celkem {$celkovacena} Kč</h2>
+            <div class="col-lg-12 centertext">
+                <br>
+                <div class="col-lg-4">
+                    <form class="centertext" action="" method="post" n:if="$celkovacena > 0" n:name=vyhodKosikForm>
+                        <input class="bcred bdouble fs17" type="submit" n:name=vyprazdnit value="Vyprázdnit košík"> 
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <a class="bcgreen bdouble fs25 kosik ptb10 mb20" n:href="Kosik:pokladna" n:if="$celkovacena > 0">K pokladně</a>
+                    <br><br>
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+        </div>
+
+        {* toto se zobrazi pokud je kosik prazdny *}
+        <div n:if="$celkovacena == 0">
+            <h1>Košík je prázdný</h1>
+            <br>
+        </div>
+    </div>
+</div>

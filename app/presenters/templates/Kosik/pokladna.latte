@@ -1,0 +1,26 @@
+{* Latte template *}
+
+{block content}
+{* odkaz na hlavni stranu *}
+<div class="col-lg-12">
+    <div class="strana">
+        <a n:href="Homepage:default">Hlavní strana</a>
+    </div>
+</div>
+
+<div class="col-lg-12">
+    <form class="centertext" n:name=platbaForm>
+        <h1>Zvolte tip platby</h1>
+        <input n:name=platba value="prevodem">
+        <label>Převodem na účet</label>
+        <input n:if="$info['ehra'] == false" n:name=platba values="dobirka">
+        <label n:if="$info['ehra'] == false">Dobírka</label>
+	<br>
+	<input type="hidden">
+	<input type='hidden'>
+	<input type="submit" value="Další" n:name=odeslat>
+    </form>
+</div>
+<h3>Při objednávce elektronicky distribuované hry lze platit jen převodem na účet ,
+jestli chcete objednat zároveň krabicovku a steam hru , lze také platit jen převodem na účet</h3>
+

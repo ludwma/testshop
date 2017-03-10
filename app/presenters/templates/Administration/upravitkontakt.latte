@@ -1,0 +1,12 @@
+{block content}
+{include '..\Utrzky\admin_menu_kontakty.latte'}
+
+{include '..\Utrzky\flashmessages.latte'}
+<div class="col-lg-12">
+    <form n:name=upravitKontaktForm>
+	<input type="text" placeholder="Jméno kontaktu" n:name=sjmeno>
+	<input type="text" placeholder="Nové jméno kontaktu" n:name=njmeno>
+	<input type="text" placeholder="Kontakt" n:name=nkontakt>
+	<input type="submit" value="Upravit kontakt">
+    </form>
+</div>

@@ -1,0 +1,10 @@
+{* tento soubor vizualizuje vypsane flash zprávy *}
+{block content}
+{* flashmessages *}
+{foreach $flashes as $flash}
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="{$flash->type}">
+            <h2 class="bleskUspech">{$flash->message}</h2>
+        </div>
+    </div>
+{/foreach}

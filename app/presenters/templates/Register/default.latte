@@ -1,0 +1,31 @@
+{block content}
+
+{include '..\Utrzky\hlavni_strana.latte'}
+
+{* div pro vycentrovani dalsiho divu *}
+<div class="col-lg-4 col-md-3 col-sm-2"></div>
+{* formular pro registraci *}
+<div class="col-lg-4 col-md-6 col-sm-8">
+    <form id="regform" n:name="registrationForm">
+        <h1 id="regnad">Registrace</h1>
+        <div class="oddelovac"></div>
+        <br>
+        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Uživatelské jméno</label>
+        <input class="col-lg-6 col-md-6 col-sm-6 col-xs-12" n:name=user>
+        <br><br>
+        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Email</label>
+        <input type="email" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" n:name=email>
+        <br><br>
+        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Heslo</label>
+        <input type="password" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" n:name=password>
+        <br><br>
+        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Heslo znovu</label>
+        <input type="password" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" n:name=passwordRepeat>
+        <br><br>
+        <input type="submit" value="Registrovat" id="regreg">    
+    </form>
+</div>
+
+{include '..\Utrzky\flashmessages.latte'}
+
+

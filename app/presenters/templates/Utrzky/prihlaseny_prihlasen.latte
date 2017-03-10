@@ -1,0 +1,22 @@
+{block content}
+{* tato stranka obsahuje formular pro prihlaseni a take listu kterou vidi prihlaseny uzivatel
+je inkludovana ve vetsine strankach , krome homepage , ten ma upravenou verzi teto stranky*}
+
+<!-- Prihlasovaci formular -->
+<div class="col-lg-12 foreground" n:if="!$user->isLoggedIn()">
+    <div class="strana">
+        <form class="pf" n:name=signInForm>
+            <h2 class="pfn">Přihlášení</h2>
+            <div class="oddelovac"></div>
+            <input class="pfi" type="text" placeholder="Jméno" n:name=user>
+            <input class="pfi" type="password" placeholder="Heslo" n:name=password>
+            <input class="pfi sub" type="submit" value="Přihlásit">
+        </form>
+	{include 'flashmessages.latte'}
+        <a n:href="Register:default">Registrace</a>    
+        <div class="oddelovacM"></div>   
+        <a n:href="Kosik:default"><span class="glyphicon glyphicon-barcode kos2"></span> Košík</a>
+    </div>
+</div>
+
+{include 'prihlasen.latte'}

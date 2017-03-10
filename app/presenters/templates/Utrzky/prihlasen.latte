@@ -1,0 +1,23 @@
+{* tento soubor obsahuje horni listu kterou vidi uzivatel pouze kdyz je prihlasen ,
+vecinou je do stranek vkladana v kombinaci s listou kterou vidi neprihlaseny uzivatel ,
+na strance user default je vsak vlozena samostatne*}
+{block content}
+{* co vidi prihlaseny uzivatel *}
+<div class="col-lg-12">
+    <div class="strana" n:if="$user->isLoggedIn()">
+        <h2 class="pfn2">Vítejte <a n:href="User:default">{$user->identity->data[username]}</a></h2>
+        <div class="col-lg-12 bcscolor">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <form class="" action ="{link User:odhlasit}" method="post">
+                    <a n:href="Kosik:default"><span class="glyphicon glyphicon-barcode kos2"></span> Košík</a>
+                    <input class="pfi2" type="submit" name="odhlas" value="Odhlásit se">
+                </form>
+            </div>
+            <div class="col-lg-4 mt20">
+            </div>
+        </div>
+        <a n:if="$user->isInRole('admin')" n:href="Administration:category" class="adminodkaz">Administrace</a>          
+    </div>
+</div>
+		    

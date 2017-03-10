@@ -1,0 +1,83 @@
+{* Latte template *}
+
+{block content}
+{include '..\Utrzky\prihlaseny_prihlasen.latte'}
+{include '..\Utrzky\kategorie.latte'}
+
+{* zobrazeni flash messages *}
+{foreach $flashes as $flash}
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="{$flash->type}">
+            <h2 class="bleskUspech">{$flash->message}</h2>
+        </div>
+    </div>
+{/foreach}
+
+{* zobrazeni cele stranky pro lg a md *}
+<div class="col-lg-12 col-md-12 centertext bcblack hidden-sm hidden-xs" n:if="!empty($hra)">
+    <h1 class="nmt pt20">{$hra->jmeno}</h1>
+    <div class="col-lg-4 col-md-4 bcblack">
+        <a n:href="Produkt:galerie $hra->id,'Nahled1'" class="fs0"><img class="img-responsive" src="{$basePath}/images/Produkty/{$hra->id}/Nahled1.jpg"></a>
+        <a n:href="Produkt:galerie  $hra->id,'Nahled2'" class="fs0"><img class="img-responsive" src="{$basePath}/images/Produkty/{$hra->id}/Nahled2.jpg"></a>
+        <a n:href="Produkt:galerie  $hra->id,'Nahled3'" class="fs0"><img class="img-responsive" src="{$basePath}/images/Produkty/{$hra->id}/Nahled3.jpg"></a>
+        <a n:href="Produkt:galerie  $hra->id,'Nahled4'" class="fs0"><img class="img-responsive" src="{$basePath}/images/Produkty/{$hra->id}/Nahled4.jpg"></a>
+    </div>
+
+    <div class="col-lg-8 col-md-8 bcblack">
+        <br>
+        <iframe class="hidden-md hidden-sm hidden-xs" width="99%" height="450px" src="https://www.youtube.com/embed/{$hra->idyt}" allowfullscreen></iframe>
+        <iframe class="hidden-lg hidden-sm hidden-xs" width="99%" height="400px" src="https://www.youtube.com/embed/{$hra->idyt}" allowfullscreen></iframe>
+    </div>
+
+    <div class="col-lg-8 col-md-8 bcblack">
+        <br>
+        <p class="cwhite fs20">{$hra->popis}</p>
+        <h2 class="mt10">Verze pro {$hra->verze}</h2>
+        <p class="cwhite fs20">Datum vydání: {date_format($hra->vyslo,"j.n.Y")} , Jazyk: {$hra->jazyk} , Vydání: {$hra->vydani} ,
+            Skladem: {$hra->skladem} kusů</p>
+        <h1 class="mb20">Cena {$hra->cena} Kč</h1>
+        <form action="{link Kosik:PridatDoKosiku,($hra->id)}" method="post">
+            <input class="bcgrey bdouble fs25 kosik" type="submit" name="kosik" value="Přidat do košíku">
+        </form>
+    </div>
+</div>
+
+
+{* Produkt neexistuje *}
+<div class="col-lg-12" n:if="empty($hra)">
+    <h1 class="bcred ptb10">Hledaný produkt neexistuje.</h1>
+</div>
+
+
+{* zobrazeni cele stranky pro sm a xs *}
+<div class="hidden-lg hidden-md col-sm-12 col-xs-12 bcblack">
+    <h1>{$hra->jmeno}</h1> 
+    <div class="col-sm-12 col-xs-12 centertext">
+        <p class="cwhite fs20">{$hra->popis}</p>
+    </div>
+
+    <div class="col-sm-12 col-xs-12">
+        <br>
+        <a class="fs0"  n:href="Produkt:galerie $hra->id,'Nahled1'"><img class="img-responsive col-sm-3 col-xs-6" src="{$basePath}/images/Produkty/{$hra->id}/Nahled1.jpg"></a>
+        <a class="fs0"  n:href="Produkt:galerie $hra->id,'Nahled2'"><img class="img-responsive col-sm-3 col-xs-6" src="{$basePath}/images/Produkty/{$hra->id}/Nahled2.jpg"></a>
+        <a class="fs0"  n:href="Produkt:galerie $hra->id,'Nahled3'"><img class="img-responsive col-sm-3 col-xs-6" src="{$basePath}/images/Produkty/{$hra->id}/Nahled3.jpg"></a> 
+        <a class="fs0"  n:href="Produkt:galerie $hra->id,'Nahled4'"><img class="img-responsive col-sm-3 col-xs-6" src="{$basePath}/images/Produkty/{$hra->id}/Nahled4.jpg"></a> 
+    </div>
+
+    <div class="col-sm-12 col-xs-12 centertext">
+        <br>
+        <h2 class="mt10">Verze pro {$hra->verze}</h2>
+        <p class="cwhite fs20">Datum vydání: {date_format($hra->vyslo,"j.n.Y")} , Jazyk: {$hra->jazyk} , Vydání: {$hra->vydani} ,
+            Skladem: {$hra->skladem} kusů</p>
+        <h1 class="mb20">Cena {$hra->cena} Kč</h1>
+        <form action="{link Kosik:PridatDoKosiku,($hra->id)}" method="post">
+            <input class="bcgrey bdouble fs25 kosik" type="submit" name="kosik" value="Přidat do košíku">
+        </form>    
+    </div>
+
+    <div class="col-sm-12 col-xs-12">
+        <br>
+        <iframe  width="99%" height="400px" src="https://www.youtube.com/embed/{$hra->idyt}" allowfullscreen></iframe>
+    </div>
+</div>
+

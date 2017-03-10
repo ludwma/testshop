@@ -1,0 +1,19 @@
+{block content}
+{include '..\Utrzky\admin_menu.latte'}
+
+{* formular pro upravu kontaktu *}
+<div class="col-lg-4"></div>
+<div class="col-lg-4">
+    <form class="centertext bcscolor pb30" action="" method="post" n:name=kontaktyForm>
+        <h1 class="nmt ptb10">Úprava kontaktů</h1>
+        <label class="col-lg-5">Telefon:</label>
+        <input class="col-lg-6" type="text" n:name=telefon value="{$kontakty["telefon"]}">
+        <br><br>
+        <label class="col-lg-5">Email:</label>
+        <input class="col-lg-6" type="text" n:name=email value="{$kontakty["email"]}">
+        <br><br>
+        <input type="submit" n:name=upravk value="Uprav kontakty">
+    </form>
+</div>
+
+{include '..\Utrzky\flashmessages.latte'}

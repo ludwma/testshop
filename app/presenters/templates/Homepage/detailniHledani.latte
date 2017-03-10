@@ -1,0 +1,64 @@
+{block content}
+{include '..\Utrzky\prihlaseny_prihlasen.latte'}
+{include '..\Utrzky\hlavni_strana.latte'}
+
+{* formular pro cycentrovani dalsiho formulare na stred *}
+
+{* formular pro pokrocile vyhledavani *}
+	    <div class=" col-lg-4 centertext bcscolor h515" id="pvyhledavani">
+		<form class="centertext" n:name=hledejPodleDetailuForm>
+		    {* nadpis *}
+		    <h2>Pokročilé vyhledávání</h2>
+		    <label>Cena</label>
+		    <br>
+		    {* min , max cena *}
+		    <input type="number" n:name=maxcena placeholder="Maximální cena">
+		    <br><br>
+		    {* vyber zanru , muze jich byt i nekolik *}
+		    <label>Žánr</label>
+		    <br>
+		    <input type="Checkbox" n:name=akcni>
+		    <label>Akční</label>
+		    <input type="checkbox" n:name=adventura>
+		    <label>Adventury</label>
+		    <input type="Checkbox" n:name=rpg>
+		    <label>Rpg</label>
+		    <input type="Checkbox" n:name=sportovni>
+		    <label>Sportovní</label>
+		    <br>
+		    <input type="Checkbox" n:name=simulator>
+		    <label>Simulátory</label>
+		    <input type="Checkbox" n:name=plosinovka>
+		    <label>Plošinovky</label>
+		    <input type="Checkbox" n:name=strategie>
+		    <label>Strategie</label>
+		    <br><br>
+		    {* vyber jazyka *}
+		    <label>Jazyk</label>
+		    <br>
+		    <input type="Checkbox" n:name=Cz>
+		    <label>Čeština</label>
+		    <input type="Checkbox" n:name=Anglicky>
+		    <label>Angličtina</label>
+		   <br><br>
+		   {* vyber distribuce *}
+		    <label>Distribuce</label>
+		    <br>
+		    <input type="Checkbox" n:name=krabice>
+		    <label>Krabice</label>
+		    <input type="Checkbox" n:name=Steam>
+		    <label>Steam</label>
+		   <br><br>
+		   {* submit *}
+		    <input type="submit" n:name=Hledej value="Hledat">
+		   <br><br>
+		</form>
+	    </div>
+
+           {include '..\Utrzky\vypis_produktu.latte'}
+
+		   
+
+
+	
+	

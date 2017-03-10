@@ -1,0 +1,16 @@
+{block content}
+{include '..\Utrzky\admin_menu_kontakty.latte'}
+
+{include '..\Utrzky\flashmessages.latte'}
+
+<div class="col-lg-3"></div>
+<div class="col-lg-6 bcscolor">
+<form class="centertext" n:name=pridatKontaktForm>
+    <h1>Přidání kontaktu</h1>
+    <input type="text" placeholder="Jméno kontaktu" n:name=jmeno>
+    <input type="text" placeholder="Kontakt" n:name=kontakt>
+    <select n:name=pozice></select>
+    <input type="submit" value="Přidat kontakt" n:name=odeslat>
+</form>
+    <br><br>
+</div>

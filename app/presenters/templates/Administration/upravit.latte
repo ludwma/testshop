@@ -1,0 +1,63 @@
+{block content}
+{include '..\Utrzky\admin_menu.latte'}
+
+{include '..\Utrzky\flashmessages.latte'}
+
+{* Nadpis *}
+<div class="col-lg-12">
+    <h1>Úprava hry</h1>
+</div>
+
+{* formular pro vyhledani upravovane hry *}
+<div class="col-lg-12">
+    <form action="" method="post" n:name=hledejForm>
+        <input type="text" n:name=hledej placeholder="Hledaná hra"> 
+        <input type="submit" n:name=hledat value="Hledej">
+    </form>
+</div>
+
+{* div ktery vycentruje formular pro upravu *}
+<div class="col-lg-3"></div>
+
+{* samotny formular pro upravu zobrazi se pouze kdyz je vyhledana hra existujici v db *}
+<div class="col-lg-6" n:if="!empty($hra) && isset($hra)">
+    <form class="centertext bcscolor pb30" n:name=upravitForm>
+        {* jmeno upravovane hry *}
+	<div class="col-lg-12">
+            <br>
+            <input class="centertext cwhite" type="text" n:name=jmeno placeholder="Jméno hry"> 
+        </div>
+	{* volba zanru verze a jazyka *}
+        <div class="col-lg-3">
+            <br>
+            <select class="mb20" n:name=zanr></select>
+            <br>
+            <select class="mb20" n:name=verze></select>
+            <br>
+            <select class="mb20" n:name=jazyk></select>
+            <br>
+            <select n:name=vydani></select>
+        </div>
+	{* popis hry *}
+        <div class="col-lg-6">
+            <br>
+            <textarea class="pw100 mw200 h150" n:name=popis placeholder="Popis hry"></textarea>
+        </div>
+	{* kolik kusu je skladem , id youtube videa pro vlozeni do stranky , datum vydani hry *}
+        <div class="col-lg-3">
+            <br>
+            <input class="w130 mb20" type="number" n:name=skladem placeholder="Kusů skladem">
+            <input class="w130" type="text" n:name=ytid placeholder="Id youtube videa">
+            <a n:href="Administration:ytNavod">?</a>
+            <br><br>
+            <label>Datum vydání</label>
+            <br>
+            <input class="w130" n:name=datum>
+        </div>
+        {* cena *}
+        <input class="centertext cwhite" type="number" n:name=cena placeholder="cena">
+	{* submit *}
+        <input type="submit" name="odeslat" value="Upravit">
+    </form>
+</div>
+

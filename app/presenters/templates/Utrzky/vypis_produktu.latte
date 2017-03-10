@@ -1,0 +1,21 @@
+{* tento soubor obsahuje vypis produktu ze templatu hry
+pouziva se na hlavni strance a na strance s pokrocilym vyhledavanim*}
+{block content}
+{* Vypis produktu *}
+    <div class="produkty" n:if="!empty($hry)">
+        {foreach $hry as $hra}
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6 produkt centertext">
+                <div class="h75">
+                    <h1 class="mt10"><a n:href="Produkt:default $hra->id">{substr($hra->jmeno,0,30)}</a></h1>
+                </div>
+                <div class="h205">
+                    <img class="img-responsive automargin" src="{$basePath}/images/Produkty/{$hra->id}/Krabice.jpg" width="150px">
+                </div>
+                <br>
+                <div class="h140">
+                    <p class="cwhite">{substr($hra->popis,0,120)}...</p>
+                </div>
+                <h3 class="cwhite nmt">Cena {$hra->cena} Kč</h3>
+            </div>
+        {/foreach}
+    </div>

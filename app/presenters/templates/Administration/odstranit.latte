@@ -1,0 +1,15 @@
+{block content}
+{include '..\Utrzky\admin_menu.latte'}
+
+{* formular pro smazani hry *}
+<div class="col-lg-4"></div>
+<div class="col-lg-4">
+    <form class="centertext bcscolor pb30" action="" method="post" n:name=odstranForm>
+        <h1 class="nmt ptb10">Smazání hry</h1>
+        <input type="text" n:name=jmeno placeholder="Jméno hry">
+        <input type="submit" n:name=odstranit value="Odstraň hru">
+    </form>
+</div>
+
+{include '..\Utrzky\flashmessages.latte'}
+

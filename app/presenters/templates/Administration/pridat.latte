@@ -1,0 +1,76 @@
+{* odkaz na hlavni stranu a kategorie *}
+{block content}
+{include '..\Utrzky\admin_menu.latte'}
+
+{include '..\Utrzky\flashmessages.latte'}
+
+{* div ktery posune formular pro pridani na stred *}
+<div class="col-lg-3"></div>
+
+{* formular pro pridani hry *}
+<div class="col-lg-6">
+    <form class="centertext bcscolor pb30" n:name=pridatForm>
+        {* Nadpis *}
+	<h1 class="nmt pt10">Přidání hry</h1>
+        {* Jmeno *}
+	<div class="col-lg-12">
+            <input class="centertext cwhite" type="text" n:name=jmeno placeholder="Jméno hry"> 
+        </div>
+	{* vyber zanru , verze a jazyka *}
+        <div class="col-lg-3">
+            <br>
+            <select class="mb20" n:name=zanr></select>
+            <br>
+            <select class="mb20" n:name=verze></select>
+            <br>
+            <select class="mb20" n:name=jazyk></select>
+            <br>
+            <select n:name=vydani></select>
+        </div>
+	{* popis hry *}
+        <div class="col-lg-6">
+            <br>
+            <textarea class="pw100 mw200 h150" n:name=popis placeholder="Popis hry"></textarea>
+        </div>
+	{* kolik kusu je skladem , id youtube videa pro vlozeni do stranky , datum vydani hry *}
+        <div class="col-lg-3">
+            <br>
+            <input class="w130 mb20" type="number" n:name=skladem placeholder="Kusů skladem">
+            <input class="w130" type="text" n:name=ytid placeholder="Id youtube videa">
+            <a n:href="Administration:ytNavod">?</a>
+            <br><br>
+            <label>Datum vydání</label>
+            <br>
+            <input class="w130" type="date" n:name=datum>
+        </div>
+        {* vypsani erroru , toto je pouzivano pouze kdyz nahrane obrazky nejsou jpg *}
+        <div class="col-lg-12">
+            <ul class=error n:if="$form->errors">
+                <li n:foreach="$form->errors as $error">{$error}</li>
+            </ul>
+        </div>
+         {* nahrani obrazku pro hru *}
+        <div class="col-lg-12">
+            <label>Úvodní obrázek</label>
+            <input n:name=krabice class="automargin">
+            <br>
+            <label>4 Náhledové obrázky</label>
+            <input n:name=nahled1 class="automargin">
+            <br>
+            <input n:name=nahled2 class="automargin">
+            <br>
+            <input n:name=nahled3 class="automargin">
+            <br>
+            <input n:name=nahled4 class="automargin">
+            <br>
+        </div>
+	    {* cena *}
+        <input class="centertext cwhite" type="number" n:name=cena placeholder="cena">
+        {* submit *}
+	<input type="submit" name="odeslat" value="Přidat">
+    </form>
+</div> 
+
+
+
+
