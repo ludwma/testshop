@@ -1,3 +1,0 @@
-﻿# testshop
-testovací shop
-jeeeheehehehea
